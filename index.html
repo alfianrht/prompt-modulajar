@@ -5,16 +5,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Hello Bulma!</title>
         <link rel="stylesheet" href="bulma/css/bulma.min.css">
+        <script>
+            function copyText() {
+                const textToCopy = document.getElementById('title-text').innerText;
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    document.getElementById('success-message').innerText = 'Berhasil di salin';
+                });
+            }
+        </script>
     </head>
     <body>
     <section class="section">
         <div class="container">
-            <h1 class="title">
-                Hello World
-            </h1>
-            <p class="subtitle">
-                My first website with <strong>Bulma</strong>!
-            </p>
+            <div class="card">
+                <div class="card-content">
+                    <p class="subtitle mb-3">Tahap Awal</p>
+                    <p class="title" id="title-text">
+                        “Saya ingin membuat Modul Ajar di PAUD”
+                    </p>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <button class="button is-link" onclick="copyText()">Salin Text</button>
+                  </p>
+                </footer>
+                <div id="success-message" class="has-text-success mt-3"></div>
+              </div>
         </div>
     </section>
     </body>
